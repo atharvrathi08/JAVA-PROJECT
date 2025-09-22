@@ -1,0 +1,17 @@
+@echo off
+echo Compiling CCRM Project...
+
+:: Create bin directory if it doesn't exist
+if not exist bin mkdir bin
+
+:: Compile all Java files with proper package structure
+javac -d bin src/edu/ccrm/*.java src/edu/ccrm/config/*.java src/edu/ccrm/domain/*.java src/edu/ccrm/cli/*.java src/edu/ccrm/test/*.java
+
+:: Check if compilation was successful
+if %errorlevel% equ 0 (
+    echo ✅ Compilation successful!
+) else (
+    echo ❌ Compilation failed! Check your code for errors.
+)
+
+pause
